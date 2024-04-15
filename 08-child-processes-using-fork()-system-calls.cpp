@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <sys/wait.h>
+using namespace std;
 
 int main()
 {
@@ -8,13 +9,13 @@ int main()
 
     if (pid < 0)
     {
-        std::cerr << "Error: Fork failed" << std::endl;
+        cerr << "Error: Fork failed" << endl;
         return 1;
     }
     else if (pid == 0)
     {
-        std::cout << "Child process: My PID is " << getpid() << std::endl;
-        std::cout << "Child process: My parent's PID is " << getppid() << std::endl;
+        cout << "Child process: My PID is " << getpid() << endl;
+        cout << "Child process: My parent's PID is " << getppid() << endl;
 
         // Perform child-specific operations here
 
@@ -22,8 +23,8 @@ int main()
     }
     else
     {
-        std::cout << "Parent process: I have a child with PID " << pid << std::endl;
-        std::cout << "Parent process: My PID is " << getpid() << std::endl;
+        cout << "Parent process: I have a child with PID " << pid << endl;
+        cout << "Parent process: My PID is " << getpid() << endl;
 
         // Perform parent-specific operations here
 
